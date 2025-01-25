@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Fowlmouth - The Band</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'VT323', monospace;
             background-color: #F5DEB3;  /* Wheat-like tan color */
             color: #333;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
-            font-size: 16px;
-        }
-        h1, h2, .nav-title {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.2em;
-            letter-spacing: -1px;
+            font-size: 18px;
         }
         .container {
             max-width: 800px;
@@ -26,10 +22,121 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             position: relative;
         }
-        /* ... rest of the previous CSS remains the same ... */
+        .ascii-border {
+            font-family: monospace;
+            color: #8B4513;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: -1;
+            white-space: pre;
+            line-height: 1;
+            font-size: 10px;
+        }
+        nav {
+            background-color: #8B4513;
+            padding: 10px 0;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        nav a {
+            color: #F5DEB3;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #A0522D;
+        }
+        .content {
+            margin-top: 20px;
+            position: relative;
+        }
+        .ascii-divider {
+            font-family: monospace;
+            color: #8B4513;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .ascii-art {
+            font-family: monospace;
+            color: #8B4513;
+            white-space: pre;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <!-- The entire previous HTML content remains the same -->
+    <div class="container">
+        <div class="ascii-border">
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║                                                          ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#lyrics">Lyrics</a>
+            <a href="#store">Store</a>
+        </nav>
+
+        <div id="about" class="content">
+            <h1>Fowlmouth</h1>
+            <div class="ascii-divider">
+╭─────────────────────────────────────────────────────╮
+</div>
+            <p>We're a band that squawks louder than a chicken coop at dawn. Our music is a wild ride through sound and spirit.</p>
+            <div class="ascii-art">
+* * *
+ * * 
+* * *
+            </div>
+        </div>
+
+        <div class="ascii-divider">
+╭─────────────────────────────────────────────────────╮
+</div>
+
+        <div id="lyrics" class="content" style="display:none;">
+            <h2>Lyrics</h2>
+            <p>Placeholder for song lyrics. Each track tells a story wilder than the last.</p>
+            <div class="ascii-art">
+~/~/~/
+/~/~/~
+~/~/~/
+            </div>
+        </div>
+
+        <div class="ascii-divider">
+╭─────────────────────────────────────────────────────╮
+</div>
+
+        <div id="store" class="content" style="display:none;">
+            <h2>Merch Store</h2>
+            <p>Coming soon: band t-shirts, stickers, and other fowl merchandise!</p>
+            <div class="ascii-art">
+▲▲▲
+◆◆◆
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple navigation script
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href').substring(1);
+                document.querySelectorAll('.content').forEach(div => {
+                    div.style.display = div.id === targetId ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
